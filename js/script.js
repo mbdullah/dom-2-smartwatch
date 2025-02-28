@@ -25,3 +25,21 @@ function selectWristSize(size){
         }
     }
 }
+
+// Step no 3 :==========>
+const quantityElements = document.querySelectorAll(".quantity-button");
+for(let quantityElement of quantityElements){
+    quantityElement.addEventListener("click", function(event){
+        // if(event.target.innerText === "+"){
+        //     return 1;
+        // }else{
+        //     -1;
+        // }
+        // This is ternary oparetor:----------> If else er alternative;
+        const amount = event.target.innerText === "+" ? +1 : -1;
+        const quantityElement2 = document.getElementById("quantity");
+        const currentQuantity = parseInt(quantityElement2.innerText);
+        const newQuantity = Math.max(0, currentQuantity + amount);
+        quantityElement2.innerText = newQuantity;
+    })
+}
